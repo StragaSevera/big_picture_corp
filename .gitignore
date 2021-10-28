@@ -1,0 +1,8 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore RubyMine config
+.idea
+
+# Ignore sample image list
+/bin/images.txt

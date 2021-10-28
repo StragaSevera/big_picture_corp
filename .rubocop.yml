@@ -1,0 +1,42 @@
+# This is the configuration used to check the rubocop source code.
+# Check out: https://github.com/bbatsov/rubocop
+
+inherit_mode:
+  merge:
+    - Include
+
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.7.4
+  NewCops: enable
+  Include:
+    - 'Gemfile'
+  Exclude:
+    - 'tmp/**/*'
+    - '.git/**/*'
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 15
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
