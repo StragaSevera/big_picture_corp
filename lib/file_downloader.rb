@@ -11,7 +11,7 @@ class FileDownloader
 
   def download
     filename = "download/#{url.split('/').last}"
-    URI.open(url) do |uri_file|
+    URI.parse(url).open do |uri_file|
       File.write(filename, uri_file.read)
     end
     true
