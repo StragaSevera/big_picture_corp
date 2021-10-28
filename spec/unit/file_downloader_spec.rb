@@ -6,15 +6,17 @@ require './lib/file_downloader'
 
 describe FileDownloader do
   around(:each) do |example|
-    old_files = Dir.entries('download').to_set
+    old_files = Dir.entries('tmp').to_set
     example.run
-    new_files = Dir.entries('download').to_set
+    new_files = Dir.entries('tmp').to_set
 
-    (new_files - old_files).each { |filename| File.delete("download/#{filename}") }
+    (new_files - old_files).each { |filename| File.delete("tmp/#{filename}") }
   end
 
   context 'when url is valid' do
-    subject { FileDownloader.new('https://rubyonrails.org/images/rubyrails.png') }
+    subject do
+      FileDownloader.new(url: 'https://rubyonrails.org/images/rubyrails.png', download_to: 'tmp')
+    end
 
     let(:result) do
       VCR.use_cassette('file_downloader/correct_url') do
@@ -28,13 +30,15 @@ describe FileDownloader do
 
     it 'saves the image' do
       result
-      expect(File.exist?('download/rubyrails.png')).to be true
-      expect(FileUtils.compare_file('download/rubyrails.png', 'spec/fixtures/images/rubyrails.png')).to be true
+      expect(File.exist?('tmp/rubyrails.png')).to be true
+      expect(FileUtils.compare_file('tmp/rubyrails.png', 'spec/fixtures/images/rubyrails.png')).to be true
     end
   end
 
   context 'when url is invalid' do
-    subject { FileDownloader.new('https://rubyonrails.org/images/wrong.png') }
+    subject do
+      FileDownloader.new(url: 'https://rubyonrails.org/images/wrong.png', download_to: 'tmp')
+    end
 
     let(:result) do
       VCR.use_cassette('file_downloader/incorrect_url') do

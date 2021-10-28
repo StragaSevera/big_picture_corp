@@ -3,14 +3,15 @@
 require 'open-uri'
 
 class FileDownloader
-  attr_reader :url
+  attr_reader :url, :download_to
 
-  def initialize(url)
+  def initialize(url:, download_to:)
     @url = url
+    @download_to = download_to
   end
 
   def download
-    filename = "download/#{url.split('/').last}"
+    filename = "#{download_to}/#{url.split('/').last}"
     URI.parse(url).open do |uri_file|
       File.write(filename, uri_file.read)
     end

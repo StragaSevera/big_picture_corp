@@ -7,3 +7,6 @@
 # Ignore downloads
 /download/*
 !/download/.keep
+
+/tmp/*
+!/tmp/.keep

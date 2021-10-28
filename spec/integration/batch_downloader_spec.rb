@@ -5,14 +5,14 @@ require './lib/batch_downloader'
 
 describe BatchDownloader do
   around(:each) do |example|
-    old_files = Dir.entries('download').to_set
+    old_files = Dir.entries('tmp').to_set
     example.run
-    new_files = Dir.entries('download').to_set
-
-    (new_files - old_files).each { |filename| File.delete("download/#{filename}") }
+  ensure
+    new_files = Dir.entries('tmp').to_set
+    (new_files - old_files).each { |filename| File.delete("tmp/#{filename}") }
   end
 
-  subject { BatchDownloader.new('spec/fixtures/images/image_list.txt') }
+  subject { BatchDownloader.new(filename: 'spec/fixtures/images/image_list.txt', download_to: 'tmp') }
 
   let(:result) do
     VCR.use_cassette('batch_downloader/default') do
@@ -21,9 +21,9 @@ describe BatchDownloader do
   end
 
   it 'downloads correct amount of files' do
-    old_files_amount = Dir.entries('download').count
+    old_files_amount = Dir.entries('tmp').count
     result
-    new_files_amount = Dir.entries('download').count
+    new_files_amount = Dir.entries('tmp').count
     expect(new_files_amount - old_files_amount).to eq 3
   end
 

@@ -7,4 +7,4 @@ if ARGV.length != 1
   exit
 end
 
-BatchDownloader.new(ARGV[0]).download
+BatchDownloader.new(filename: ARGV[0]).download

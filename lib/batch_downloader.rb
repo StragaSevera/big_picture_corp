@@ -5,17 +5,18 @@ require 'bundler'
 Bundler.require(:default, :development)
 
 class BatchDownloader
-  attr_reader :filename
+  attr_reader :filename, :download_to
 
-  def initialize(filename)
+  def initialize(filename:, download_to: 'download')
     @filename = filename
+    @download_to = download_to
   end
 
   def download
     puts 'Download started...'
-    image_links.each do |uri|
-      result = FileDownloader.new(uri).download
-      puts "Cannot download #{uri}" unless result
+    image_links.each do |url|
+      result = FileDownloader.new(url: url, download_to: download_to).download
+      puts "Cannot download #{url}" unless result
     end
     puts 'Download finished!'
   end
