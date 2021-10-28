@@ -4,5 +4,6 @@
 # Ignore RubyMine config
 .idea
 
-# Ignore sample image list
-/bin/images.txt
+# Ignore downloads
+/download/*
+!/download/.keep

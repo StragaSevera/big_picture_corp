@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rubyonrails.org/images/wrong.png
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '882'
+      Server:
+      - GitHub.com
+      Content-Type:
+      - text/html; charset=utf-8
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - W/"6162ae6a-8fb"
+      X-Proxy-Cache:
+      - MISS
+      X-Github-Request-Id:
+      - 19BE:C95B:48DB9F:4BCB18:617A7F31
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Thu, 28 Oct 2021 10:45:05 GMT
+      Via:
+      - 1.1 varnish
+      Age:
+      - '0'
+      X-Served-By:
+      - cache-hel1410033-HEL
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1635417905.139061,VS0,VE115
+      Vary:
+      - Accept-Encoding
+      X-Fastly-Request-Id:
+      - 48c8f13f2d510c99efa5e958aaa4ec586fa26c1c
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KICA8aGVhZD4KICAgIDxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KICAgIDxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgiPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSIvc3R5bGUuY3NzIiB0eXBlPSJ0ZXh0L2NzcyIgbWVkaWE9InNjcmVlbiIgY2hhcnNldD0idXRmLTgiPgogICAgPG1ldGEgbmFtZT0iZ29vZ2xlLXNpdGUtdmVyaWZpY2F0aW9uIiBjb250ZW50PSJKa25vYWYzQ3ZSemJhM3dYTXhxZ3VyREVySUdaOWUxTDFsdXVETWhRWUVJIj4KICAgIDwhLS0gQmVnaW4gSmVreWxsIFNFTyB0YWcgdjIuNy4xIC0tPgo8dGl0bGU+Tm90IEZvdW5kIHwgUnVieSBvbiBSYWlsczwvdGl0bGU+CjxtZXRhIG5hbWU9ImdlbmVyYXRvciIgY29udGVudD0iSmVreWxsIHYzLjkuMCIgLz4KPG1ldGEgcHJvcGVydHk9Im9nOnRpdGxlIiBjb250ZW50PSJOb3QgRm91bmQiIC8+CjxtZXRhIHByb3BlcnR5PSJvZzpsb2NhbGUiIGNvbnRlbnQ9ImVuX1VTIiAvPgo8bWV0YSBuYW1lPSJkZXNjcmlwdGlvbiIgY29udGVudD0iQSB3ZWItYXBwbGljYXRpb24gZnJhbWV3b3JrIHRoYXQgaW5jbHVkZXMgZXZlcnl0aGluZyBuZWVkZWQgdG8gY3JlYXRlIGRhdGFiYXNlLWJhY2tlZCB3ZWIgYXBwbGljYXRpb25zIGFjY29yZGluZyB0byB0aGUgTW9kZWwtVmlldy1Db250cm9sbGVyIChNVkMpIHBhdHRlcm4uIiAvPgo8bWV0YSBwcm9wZXJ0eT0ib2c6ZGVzY3JpcHRpb24iIGNvbnRlbnQ9IkEgd2ViLWFwcGxpY2F0aW9uIGZyYW1ld29yayB0aGF0IGluY2x1ZGVzIGV2ZXJ5dGhpbmcgbmVlZGVkIHRvIGNyZWF0ZSBkYXRhYmFzZS1iYWNrZWQgd2ViIGFwcGxpY2F0aW9ucyBhY2NvcmRpbmcgdG8gdGhlIE1vZGVsLVZpZXctQ29udHJvbGxlciAoTVZDKSBwYXR0ZXJuLiIgLz4KPGxpbmsgcmVsPSJjYW5vbmljYWwiIGhyZWY9Imh0dHBzOi8vcnVieW9ucmFpbHMub3JnLzQwNC5odG1sIiAvPgo8bWV0YSBwcm9wZXJ0eT0ib2c6dXJsIiBjb250ZW50PSJodHRwczovL3J1YnlvbnJhaWxzLm9yZy80MDQuaHRtbCIgLz4KPG1ldGEgcHJvcGVydHk9Im9nOnNpdGVfbmFtZSIgY29udGVudD0iUnVieSBvbiBSYWlscyIgLz4KPG1ldGEgcHJvcGVydHk9Im9nOmltYWdlIiBjb250ZW50PSJodHRwczovL2F2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3UvNDIyMyIgLz4KPG1ldGEgbmFtZT0idHdpdHRlcjpjYXJkIiBjb250ZW50PSJzdW1tYXJ5X2xhcmdlX2ltYWdlIiAvPgo8bWV0YSBwcm9wZXJ0eT0idHdpdHRlcjppbWFnZSIgY29udGVudD0iaHR0cHM6Ly9hdmF0YXJzLmdpdGh1YnVzZXJjb250ZW50LmNvbS91LzQyMjMiIC8+CjxtZXRhIHByb3BlcnR5PSJ0d2l0dGVyOnRpdGxlIiBjb250ZW50PSJOb3QgRm91bmQiIC8+CjxtZXRhIG5hbWU9InR3aXR0ZXI6c2l0ZSIgY29udGVudD0iQHJhaWxzIiAvPgo8c2NyaXB0IHR5cGU9ImFwcGxpY2F0aW9uL2xkK2pzb24iPgp7ImRlc2NyaXB0aW9uIjoiQSB3ZWItYXBwbGljYXRpb24gZnJhbWV3b3JrIHRoYXQgaW5jbHVkZXMgZXZlcnl0aGluZyBuZWVkZWQgdG8gY3JlYXRlIGRhdGFiYXNlLWJhY2tlZCB3ZWIgYXBwbGljYXRpb25zIGFjY29yZGluZyB0byB0aGUgTW9kZWwtVmlldy1Db250cm9sbGVyIChNVkMpIHBhdHRlcm4uIiwidXJsIjoiaHR0cHM6Ly9ydWJ5b25yYWlscy5vcmcvNDA0Lmh0bWwiLCJAdHlwZSI6IldlYlBhZ2UiLCJpbWFnZSI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS80MjIzIiwiaGVhZGxpbmUiOiJOb3QgRm91bmQiLCJAY29udGV4dCI6Imh0dHBzOi8vc2NoZW1hLm9yZyJ9PC9zY3JpcHQ+CjwhLS0gRW5kIEpla3lsbCBTRU8gdGFnIC0tPgoKICA8L2hlYWQ+CgogIDxib2R5PgogICAgPGRpdiBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgPGRpdiBjbGFzcz0ibG9nbyI+CiAgPGEgaHJlZj0iLyI+CiAgICA8aW1nIHNyYz0iL2ltYWdlcy9yYWlscy1sb2dvLnN2ZyIgd2lkdGg9IjEzMCIgaGVpZ2h0PSI0NiIgYWx0PSJSdWJ5IG9uIFJhaWxzIj4KICA8L2E+CjwvZGl2PgoKPHNlY3Rpb24+CiAgPGgxIHN0eWxlPSJ0ZXh0LWFsaWduOiBjZW50ZXIiPllvdeKAmXZlIGdvbmUgb2ZmIHRoZSBSYWlscyE8L2gxPgo8L3NlY3Rpb24+CgoKPHNlY3Rpb24+CiAgPHAgY2xhc3M9ImJhY2siPgogICAgPGEgaHJlZj0iLyI+JmxhcnI7IEJhY2sgdG8gaG9tZXBhZ2U8L2E+CiAgPC9wPgo8L3NlY3Rpb24+CgogICAgPC9kaXY+IDwhLS0gLy5jb250YWluZXIgLS0+CiAgPC9ib2R5Pgo8L2h0bWw+Cg==
+  recorded_at: Thu, 28 Oct 2021 10:45:03 GMT
+recorded_with: VCR 6.0.0
