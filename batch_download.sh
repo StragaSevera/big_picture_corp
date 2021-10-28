@@ -1,2 +1,2 @@
 #!/bin/sh
-ruby bin/batch_download.rb $1
+ruby bin/batch_download.rb "$1"
