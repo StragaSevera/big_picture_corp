@@ -1,0 +1,4 @@
+https://rubyonrails.org/images/imagine.png
+https://rubyonrails.org/images/wrong.png
+https://rubyonrails.org/images/rubyrails.png
+https://rubyonrails.org/images/more.png

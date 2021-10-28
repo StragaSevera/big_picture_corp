@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require '../lib/batch_downloader'
+require './lib/batch_downloader'
 
 if ARGV.length != 1
   puts 'Wrong number of arguments'

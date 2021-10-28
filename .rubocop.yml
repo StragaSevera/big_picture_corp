@@ -18,8 +18,9 @@ AllCops:
 Layout/LineLength:
   Max: 120
 
-Metrics/MethodLength:
-  Max: 15
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/***/*.rb'
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes

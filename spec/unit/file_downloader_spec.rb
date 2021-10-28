@@ -17,7 +17,7 @@ describe FileDownloader do
     subject { FileDownloader.new('https://rubyonrails.org/images/rubyrails.png') }
 
     let(:result) do
-      VCR.use_cassette('correct_url') do
+      VCR.use_cassette('file_downloader/correct_url') do
         subject.download
       end
     end
@@ -37,7 +37,7 @@ describe FileDownloader do
     subject { FileDownloader.new('https://rubyonrails.org/images/wrong.png') }
 
     let(:result) do
-      VCR.use_cassette('incorrect_url') do
+      VCR.use_cassette('file_downloader/incorrect_url') do
         subject.download
       end
     end
