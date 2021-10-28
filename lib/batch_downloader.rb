@@ -14,14 +14,16 @@ class BatchDownloader
 
   def download
     puts 'Download started...'
-    image_links.each do |url|
+    each_image_link do |url|
       result = FileDownloader.new(url: url, download_to: download_to).download
       puts "Cannot download #{url}" unless result
     end
     puts 'Download finished!'
   end
 
-  def image_links
-    File.readlines(filename).flat_map(&:split)
+  def each_image_link(&block)
+    File.foreach(filename) do |line|
+      line.split.each(&block)
+    end
   end
 end

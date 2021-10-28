@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'open-uri'
+require 'down'
 
 class FileDownloader
   attr_reader :url, :download_to
@@ -12,11 +12,9 @@ class FileDownloader
 
   def download
     filename = "#{download_to}/#{url.split('/').last}"
-    URI.parse(url).open do |uri_file|
-      File.write(filename, uri_file.read)
-    end
+    Down.download(url, destination: filename, max_size: 50 * 1024 * 1024)
     true
-  rescue OpenURI::HTTPError
+  rescue Down::Error
     false
   end
 end
