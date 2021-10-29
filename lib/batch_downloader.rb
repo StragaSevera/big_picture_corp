@@ -19,7 +19,7 @@ class BatchDownloader
     prepare_download_folder
     puts 'Download started...'
     each_image_link do |url|
-      threads << Thread.new(url, &method(:add_downloading_thread))
+      threads << Thread.new(url, &method(:download_file))
       handle_next_thread if threads.size >= THREADS_AMOUNT
     end
     ThreadsWait.all_waits(*threads)
@@ -40,7 +40,7 @@ class BatchDownloader
     end
   end
 
-  def add_downloading_thread(url)
+  def download_file(url)
     result = FileDownloader.new(url: url, download_to: download_to).download
     puts "Cannot download #{url}" unless result
   end
