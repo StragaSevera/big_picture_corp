@@ -5,6 +5,10 @@ require 'fileutils'
 require './lib/file_downloader'
 
 describe FileDownloader do
+  before(:all) do
+    Dir.mkdir('tmp') unless File.exist?('tmp')
+  end
+
   around(:each) do |example|
     old_files = Dir.entries('tmp').to_set
     example.run

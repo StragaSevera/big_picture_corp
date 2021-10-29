@@ -5,8 +5,5 @@
 .idea
 
 # Ignore downloads
-/download/*
-!/download/.keep
-
-/tmp/*
-!/tmp/.keep
+/download
+/tmp

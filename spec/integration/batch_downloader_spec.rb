@@ -4,6 +4,10 @@ require 'rspec'
 require './lib/batch_downloader'
 
 describe BatchDownloader do
+  before(:all) do
+    Dir.mkdir('tmp') unless File.exist?('tmp')
+  end
+
   around(:each) do |example|
     old_files = Dir.entries('tmp').to_set
     example.run
@@ -24,7 +28,7 @@ describe BatchDownloader do
     old_files_amount = Dir.entries('tmp').count
     result
     new_files_amount = Dir.entries('tmp').count
-    expect(new_files_amount - old_files_amount).to eq 3
+    expect(new_files_amount - old_files_amount).to eq 4
   end
 
   it 'outputs correct messages' do
