@@ -42,7 +42,7 @@ class BatchDownloader
 
   def download_file(url)
     result = FileDownloader.new(url: url, download_to: download_to).download
-    puts "Cannot download #{url}" unless result
+    STDERR.puts "Cannot download #{url}" unless result
   end
 
   def handle_next_thread

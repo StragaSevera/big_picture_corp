@@ -3,7 +3,7 @@
 require './lib/batch_downloader'
 
 if ARGV.length != 1
-  puts 'Wrong number of arguments'
+  STDERR.puts 'Wrong number of arguments'
   exit
 end
 

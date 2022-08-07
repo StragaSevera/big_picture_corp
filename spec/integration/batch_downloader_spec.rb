@@ -32,12 +32,15 @@ describe BatchDownloader do
   end
 
   it 'outputs correct messages' do
-    correct_output = <<~OUTPUT
+    stdout_output = <<~STDOUT_OUTPUT
       Download started...
-      Cannot download https://rubyonrails.org/images/wrong.png
       Download finished!
-    OUTPUT
+    STDOUT_OUTPUT
+    stderr_output = <<~STDERR_OUTPUT
+      Cannot download https://rubyonrails.org/images/wrong.png
+    STDERR_OUTPUT
 
-    expect { result }.to output(correct_output).to_stdout
+    expect { result }.to output(stdout_output).to_stdout &
+                         output(stderr_output).to_stderr_from_any_process
   end
 end
