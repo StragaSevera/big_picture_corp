@@ -10,7 +10,6 @@ GEM
     diff-lcs (1.5.0)
     down (5.3.1)
       addressable (~> 2.8)
-    e2mmap (0.1.0)
     hashdiff (1.0.1)
     json (2.6.2)
     method_source (1.0.0)
@@ -52,8 +51,6 @@ GEM
     rubocop-rspec (2.12.1)
       rubocop (~> 1.31)
     ruby-progressbar (1.11.0)
-    thwait (0.2.0)
-      e2mmap
     unicode-display_width (2.2.0)
     vcr (6.1.0)
     webmock (3.17.0)
@@ -70,7 +67,6 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-rspec
-  thwait
   vcr
   webmock
 

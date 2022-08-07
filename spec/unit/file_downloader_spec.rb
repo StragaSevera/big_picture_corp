@@ -6,7 +6,7 @@ require './lib/file_downloader'
 
 describe FileDownloader do
   before(:all) do
-    Dir.mkdir('tmp') unless File.exist?('tmp')
+    FileUtils.mkdir_p('tmp')
   end
 
   around(:each) do |example|

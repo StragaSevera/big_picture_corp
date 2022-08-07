@@ -5,50 +5,50 @@ require 'bundler'
 Bundler.require(:default)
 
 class BatchDownloader
-  attr_reader :filename, :download_to
-
   THREADS_AMOUNT = 4
+  MAX_LINKS = 1024
 
   def initialize(filename:, download_to: 'download')
     @filename = filename
     @download_to = download_to
-    @threads = []
+    @queue = Thread::SizedQueue.new(MAX_LINKS)
   end
 
   def download
     prepare_download_folder
     puts 'Download started...'
-    each_image_link do |url|
-      threads << Thread.new(url, &method(:download_file))
-      handle_next_thread if threads.size >= THREADS_AMOUNT
-    end
-    ThreadsWait.all_waits(*threads)
+
+    threads = []
+    threads << Thread.new(&method(:parse_links))
+    threads += THREADS_AMOUNT.times.map { Thread.new(&method(:download_files)) }
+
+    threads.each(&:join)
     puts 'Download finished!'
   end
 
   private
 
-  attr_reader :threads
+  attr_reader :filename, :download_to, :queue
 
   def prepare_download_folder
-    Dir.mkdir('download') unless File.exist?('download')
+    FileUtils.mkdir_p('download')
   end
 
-  def each_image_link(&block)
+  def parse_links
     File.foreach(filename) do |line|
-      line.split.each(&block)
+      line.split.each { |link| queue.push(link) }
+    end
+    queue.close
+  end
+
+  def download_files
+    while (link = queue.pop)
+      download_file(link)
     end
   end
 
   def download_file(url)
     result = FileDownloader.new(url: url, download_to: download_to).download
-    STDERR.puts "Cannot download #{url}" unless result
-  end
-
-  def handle_next_thread
-    finished_thread = ThreadsWait.new(*threads).next_wait
-    threads.delete(finished_thread)
-  rescue ErrNoWaitingThread
-    # Ignored
+    warn "Cannot download #{url}" unless result
   end
 end
