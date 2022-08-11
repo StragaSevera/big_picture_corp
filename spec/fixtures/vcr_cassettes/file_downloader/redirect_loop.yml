@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://isup.me/redirect_loop.png
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - Down/5.3.1
+      Connection:
+      - close
+      Host:
+      - isup.me
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Thu, 11 Aug 2022 09:29:17 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Cache-Control:
+      - max-age=3600
+      Expires:
+      - Thu, 11 Aug 2022 10:29:17 GMT
+      Location:
+      - https://isup.me/redirect_loop.png
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=qUq24Cd3tYCBDialKTtuSD36hwgDss3AZ0MKByu3VvtAepXlwAi7BkwwSkFElcuTZjqfLv5sjsT0vi9lDutEMi6Q9qelcQ9Ao3wtb46Yyf%2Bp4C0Hzs35O4oU"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 738ff22c7d412d97-KBP
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Thu, 11 Aug 2022 09:29:16 GMT
+- request:
+    method: get
+    uri: https://isup.me/redirect_loop.png
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+        - Down/5.3.1
+      Connection:
+        - close
+      Host:
+        - isup.me
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+        - Thu, 11 Aug 2022 09:29:17 GMT
+      Transfer-Encoding:
+        - chunked
+      Connection:
+        - close
+      Cache-Control:
+        - max-age=3600
+      Expires:
+        - Thu, 11 Aug 2022 10:29:17 GMT
+      Location:
+        - https://isup.me/redirect_loop.png
+      Expect-Ct:
+        - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+        - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=qUq24Cd3tYCBDialKTtuSD36hwgDss3AZ0MKByu3VvtAepXlwAi7BkwwSkFElcuTZjqfLv5sjsT0vi9lDutEMi6Q9qelcQ9Ao3wtb46Yyf%2Bp4C0Hzs35O4oU"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+        - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+        - cloudflare
+      Cf-Ray:
+        - 738ff22c7d412d97-KBP
+      Alt-Svc:
+        - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+  recorded_at: Thu, 11 Aug 2022 09:29:16 GMT
+recorded_with: VCR 6.1.0

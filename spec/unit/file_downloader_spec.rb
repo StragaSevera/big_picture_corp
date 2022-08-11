@@ -117,4 +117,46 @@ describe FileDownloader do
       end
     end
   end
+
+  context 'when url has a redirect loop' do
+    subject do
+      FileDownloader.new(url: 'https://isup.me/redirect_loop.png', download_to: 'tmp')
+    end
+
+    let(:result) do
+      VCR.use_cassette('file_downloader/redirect_loop') do
+        subject.download
+      end
+    end
+
+    it 'returns correct result' do
+      expect(result).to eq :error
+    end
+
+    it 'does not save the image' do
+      result
+      expect(File.exist?('download/redirect_loop.png')).to be false
+    end
+  end
+
+  context 'when file is too big' do
+    subject do
+      FileDownloader.new(url: 'https://rubyonrails.org/assets/images/huge.svg', download_to: 'tmp')
+    end
+
+    let(:result) do
+      VCR.use_cassette('file_downloader/huge_file') do
+        subject.download
+      end
+    end
+
+    it 'returns correct result' do
+      expect(result).to eq :error
+    end
+
+    it 'does not save the image' do
+      result
+      expect(File.exist?('download/huge.png')).to be false
+    end
+  end
 end
