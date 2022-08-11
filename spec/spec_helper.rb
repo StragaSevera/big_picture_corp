@@ -99,6 +99,7 @@ RSpec.configure do |config|
   #   Kernel.srand config.seed
 end
 require 'vcr'
+require 'webmock/rspec'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'

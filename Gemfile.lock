@@ -8,10 +8,27 @@ GEM
     crack (0.4.5)
       rexml
     diff-lcs (1.5.0)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     down (5.3.1)
       addressable (~> 2.8)
+    ffi (1.15.5)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     hashdiff (1.0.1)
+    http (5.1.0)
+      addressable (~> 2.8)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      llhttp-ffi (~> 0.4.0)
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
     json (2.6.2)
+    llhttp-ffi (0.4.0)
+      ffi-compiler (~> 1.0)
+      rake (~> 13.0)
     method_source (1.0.0)
     parallel (1.22.1)
     parser (3.1.2.0)
@@ -21,6 +38,7 @@ GEM
       method_source (~> 1.0)
     public_suffix (4.0.7)
     rainbow (3.1.1)
+    rake (13.0.6)
     regexp_parser (2.5.0)
     rexml (3.2.5)
     rspec (3.11.0)
@@ -51,6 +69,9 @@ GEM
     rubocop-rspec (2.12.1)
       rubocop (~> 1.31)
     ruby-progressbar (1.11.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
     unicode-display_width (2.2.0)
     vcr (6.1.0)
     webmock (3.17.0)
@@ -63,6 +84,7 @@ PLATFORMS
 
 DEPENDENCIES
   down (~> 5.0)
+  http (~> 5.0)
   pry
   rspec
   rubocop

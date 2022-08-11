@@ -59,4 +59,62 @@ describe FileDownloader do
       expect(File.exist?('download/wrong.png')).to be false
     end
   end
+
+  context 'when url has no protocol prefix' do
+    context 'when real protocol is https' do
+      before do
+        stub_request(:any, 'http://rubyonrails.org/assets/images/logo.svg').to_timeout
+      end
+
+      subject do
+        FileDownloader.new(url: 'rubyonrails.org/assets/images/logo.svg', download_to: 'tmp')
+      end
+
+      let(:result) do
+        VCR.use_cassette('file_downloader/https_missing') do
+          subject.download
+        end
+      end
+
+      it 'returns correct result' do
+        expect(result).to eq :ok
+      end
+
+      it 'saves the image' do
+        result
+        expect(File.exist?('tmp/logo.svg')).to be true
+        expect(FileUtils.compare_file('tmp/logo.svg', 'spec/fixtures/images/logo.svg')).to be true
+      end
+    end
+
+    context 'when real protocol is http' do
+      before do
+        stub_request(:any, 'https://xinhuanet.com/2021homepro/images/logo.png').to_timeout
+      end
+      subject do
+        FileDownloader.new(
+          url: 'xinhuanet.com/2021homepro/images/logo.png',
+          download_to: 'tmp'
+        )
+      end
+
+      let(:result) do
+        VCR.use_cassette('file_downloader/http_missing') do
+          subject.download
+        end
+      end
+
+      it 'returns correct result' do
+        expect(result).to eq :ok
+      end
+
+      it 'saves the image' do
+        result
+        expect(File.exist?('tmp/logo.png')).to be true
+        expect(
+          FileUtils.compare_file('tmp/logo.png', 'spec/fixtures/images/logo.png')
+        ).to be true
+      end
+    end
+  end
 end
