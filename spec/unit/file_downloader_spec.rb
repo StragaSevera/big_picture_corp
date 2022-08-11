@@ -28,8 +28,8 @@ describe FileDownloader do
       end
     end
 
-    it 'returns true' do
-      expect(result).to be true
+    it 'returns correct result' do
+      expect(result).to eq :ok
     end
 
     it 'saves the image' do
@@ -50,8 +50,8 @@ describe FileDownloader do
       end
     end
 
-    it 'returns false' do
-      expect(result).to be false
+    it 'returns correct result' do
+      expect(result).to eq :error
     end
 
     it 'does not save the image' do

@@ -15,8 +15,8 @@ class FileDownloader
   def download
     filename = "#{download_to}/#{url.split('/').last}"
     Down.download(url, destination: filename, max_size: MAX_SIZE)
-    true
+    :ok
   rescue Down::Error
-    false
+    :error
   end
 end

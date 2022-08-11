@@ -49,6 +49,6 @@ class BatchDownloader
 
   def download_file(url)
     result = FileDownloader.new(url: url, download_to: download_to).download
-    warn "Cannot download #{url}" unless result
+    warn "Cannot download #{url}" unless result == :ok
   end
 end
