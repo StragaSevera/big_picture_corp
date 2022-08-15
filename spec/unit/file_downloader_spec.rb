@@ -51,7 +51,7 @@ describe FileDownloader do
     end
 
     it 'returns correct result' do
-      expect(result).to eq :error
+      expect(result).to be_a Down::NotFound
     end
 
     it 'does not save the image' do
@@ -130,7 +130,7 @@ describe FileDownloader do
     end
 
     it 'returns correct result' do
-      expect(result).to eq :error
+      expect(result).to be_a Down::TooManyRedirects
     end
 
     it 'does not save the image' do
@@ -151,7 +151,7 @@ describe FileDownloader do
     end
 
     it 'returns correct result' do
-      expect(result).to eq :error
+      expect(result).to be_a Down::TooLarge
     end
 
     it 'does not save the image' do

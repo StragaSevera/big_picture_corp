@@ -16,14 +16,14 @@ class BatchDownloader
 
   def download
     prepare_download_folder
-    puts 'Download started...'
+    puts 'Download started!'
 
     threads = []
     threads << Thread.new(&method(:parse_links))
     threads += THREADS_AMOUNT.times.map { Thread.new(&method(:download_files)) }
 
     threads.each(&:join)
-    puts 'Download finished!'
+    puts "\nDownload finished!"
   end
 
   private
@@ -49,6 +49,10 @@ class BatchDownloader
 
   def download_file(url)
     result = FileDownloader.new(url: url, download_to: download_to).download
-    warn "Cannot download #{url}" unless result == :ok
+    if result == :ok
+      print '.'
+    else
+      warn "Cannot download #{url}: #{result}"
+    end
   end
 end
