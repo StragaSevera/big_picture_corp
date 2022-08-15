@@ -35,8 +35,8 @@ class BatchDownloader
   end
 
   def parse_links
-    File.foreach(filename) do |line|
-      line.split.each { |link| queue.push(link) }
+    File.foreach(filename) do |link|
+      queue.push(link.strip)
     end
     queue.close
   end

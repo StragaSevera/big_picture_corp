@@ -9,8 +9,8 @@ After checking out the repository, run `bundle install`.
 
 ## Usage
 
-Run `./batch_download.sh <filename>` to download images listed in the file. The file should contain image URLs separated by 
-whitespace.
+Run `./batch_download.sh <filename>` to download images listed in the file. The file should contain image URLs, one link per line.
+(The example file can be found as `image_list.example`)
 
 The resulting images will be placed in `download` folder, creating one if it does not exist.
 

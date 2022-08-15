@@ -1,4 +1,5 @@
 https://rubyonrails.org/images/imagine.png
-https://rubyonrails.org/images/wrong.png
-https://rubyonrails.org/images/rubyrails.png
-https://rubyonrails.org/images/more.png https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png
+ https://rubyonrails.org/images/wrong.png 
+  https://rubyonrails.org/images/rubyrails.png
+https://rubyonrails.org/images/more.png  
+https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png
